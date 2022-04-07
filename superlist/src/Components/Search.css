@@ -1,0 +1,23 @@
+.css-1s2u09g-control{
+    box-shadow: none !important;
+    border: none !important;
+}
+.css-1pahdxg-control{
+    box-shadow: none !important;
+    border: none !important;
+}
+.SearchLabel{
+    font-size: 0.85rem;
+    line-height: 0.4375em;
+    color: rgba(0, 0, 0, 0.6);
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.00938em;
+    padding: 0;
+    position: relative;
+    margin: 4px 0;
+
+}
+.css-319lph-ValueContainer {
+    padding: 0 !important;
+}

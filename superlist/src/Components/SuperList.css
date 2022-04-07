@@ -5,13 +5,22 @@
 .TitleItem{
     text-align: left;
 }
-.layout{
-    padding: 30px;
-    background-color: #f0f0f0;
-}
+
 .TablePaper{
     padding: 30px !important;
+    background-color: #fbfbfb !important;
+
 }
 .css-jgzxgq-MuiDataGrid-root {
     border:none;
+}
+
+
+.TableGrid{
+    height: 100vh;
+    margin-top: 17px;
+}
+.Searchbar{
+    padding: 0.55rem 2rem;
+    border-radius: 100rem !important
 }

@@ -80,18 +80,21 @@ export default function SuperList() {
                         <Grid item xs={12}>
                             <ListHeader />
                         </Grid>
-                        <Grid container>
-                            <Grid item xs={8}>
+                        <Grid justifyContent={"center"} alignItems={"center"} container>
+                            <Grid  item xs={"auto"}>
                                 <Search />
                             </Grid>
                         </Grid>
-                        <Grid item xs={12} style={{height:'100vh',paddingTop:"17px"}}>
+                        <Grid item xs={12}>
+                        <Paper elevation={0}  className="TableGrid">
                         <DataGrid
                             rows={rows}
                             columns={columns}
                             checkboxSelection
                             disableSelectionOnClick
                             />
+                                                    </Paper>
+
                         </Grid>
                     </Grid>
                 </Paper>
