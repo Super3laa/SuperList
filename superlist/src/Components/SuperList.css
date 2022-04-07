@@ -1,5 +1,6 @@
 .TitleDescription{
     color: #9b9b9b;
+    padding-left: 3px;
 }
 .TitleItem{
     text-align: left;
@@ -9,5 +10,8 @@
     background-color: #f0f0f0;
 }
 .TablePaper{
-    padding: 10px !important;
+    padding: 30px !important;
+}
+.css-jgzxgq-MuiDataGrid-root {
+    border:none;
 }
