@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import SuperList from './Components/SuperList';
+import {data} from './data.js'
 function App() {
   return (
     <div className="App">
@@ -28,7 +29,7 @@ function App() {
         </Toolbar>
       </AppBar>
     </Box>
-      <SuperList />
+      <SuperList  data={data}  />
     </div>
   );
 }

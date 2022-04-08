@@ -69,9 +69,10 @@ const columns = [
     { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
   ];
 
-export default function SuperList() {
+export default function SuperList({data}) {
     const [order, setOrder] = useState('asc');
     const [orderBy, setOrderBy] = useState('calories');
+    console.log(data)
     return (
         <React.Fragment>
             <div className="layout">
@@ -82,7 +83,7 @@ export default function SuperList() {
                         </Grid>
                         <Grid justifyContent={"center"} alignItems={"center"} container>
                             <Grid  item xs={"auto"}>
-                                <Search />
+                                <Search data={data}/>
                             </Grid>
                         </Grid>
                         <Grid item xs={12}>
