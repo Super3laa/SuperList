@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Grid, InputBase, TextField, Typography } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Collapse, Grid, InputBase, List, ListItemButton, ListItemIcon, ListItemText, ListSubheader, TextField, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
 import PlusIcon from '@mui/icons-material/Add';
 import './SuperList.css';
 import ListHeader from './ListHeader';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
@@ -25,39 +27,41 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SearchIcon from '@mui/icons-material/SearchOutlined';
 import Search from './Search';
+import Filter from './Categries';
+
 const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
     {
-      field: 'firstName',
-      headerName: 'First name',
-      width: 150,
-      editable: true,
+        field: 'firstName',
+        headerName: 'First name',
+        width: 150,
+        editable: true,
     },
     {
-      field: 'lastName',
-      headerName: 'Last name',
-      width: 150,
-      editable: true,
+        field: 'lastName',
+        headerName: 'Last name',
+        width: 150,
+        editable: true,
     },
     {
-      field: 'age',
-      headerName: 'Age',
-      type: 'number',
-      width: 110,
-      editable: true,
+        field: 'age',
+        headerName: 'Age',
+        type: 'number',
+        width: 110,
+        editable: true,
     },
     {
-      field: 'fullName',
-      headerName: 'Full name',
-      description: 'non-sortable',
-      sortable: false,
-      width: 160,
-      valueGetter: (params) =>
-        `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+        field: 'fullName',
+        headerName: 'Full name',
+        description: 'non-sortable',
+        sortable: false,
+        width: 160,
+        valueGetter: (params) =>
+            `${params.row.firstName || ''} ${params.row.lastName || ''}`,
     },
-  ];
-  
-  const rows = [
+];
+
+const rows = [
     { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
     { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
     { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
@@ -67,34 +71,41 @@ const columns = [
     { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
     { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
     { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-  ];
+];
 
-export default function SuperList({data}) {
+export default function SuperList({ data }) {
     const [order, setOrder] = useState('asc');
     const [orderBy, setOrderBy] = useState('calories');
-    console.log(data)
+    
     return (
         <React.Fragment>
             <div className="layout">
                 <Paper className="TablePaper">
-                    <Grid container>
+                    <Grid container direction="column">
                         <Grid item xs={12}>
                             <ListHeader />
                         </Grid>
                         <Grid justifyContent={"center"} alignItems={"center"} container>
-                            <Grid  item xs={"auto"}>
-                                <Search data={data}/>
+                            <Grid item xs={"auto"}>
+                                <Search data={data} />
                             </Grid>
                         </Grid>
                         <Grid item xs={12}>
-                        <Paper elevation={0}  className="TableGrid">
-                        <DataGrid
-                            rows={rows}
-                            columns={columns}
-                            checkboxSelection
-                            disableSelectionOnClick
-                            />
-                                                    </Paper>
+                            <Grid container direction="row" spacing={3}>
+                                <Grid item xs={3}>
+                                    <Filter data={data}/>
+                                </Grid>
+                                <Grid item xs={9}>
+                                    <Paper elevation={3} className="TableGrid">
+                                        <DataGrid
+                                            rows={rows}
+                                            columns={columns}
+                                            checkboxSelection
+                                            disableSelectionOnClick
+                                        />
+                                    </Paper>
+                                </Grid>
+                            </Grid>
 
                         </Grid>
                     </Grid>

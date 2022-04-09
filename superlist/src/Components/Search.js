@@ -11,7 +11,7 @@ export default function Search({ data }) {
 
     return (
         <>
-            <Paper elevation={0} className="Searchbar">
+            <Paper elevation={3} className="Searchbar">
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <Grid container
@@ -19,8 +19,8 @@ export default function Search({ data }) {
                         style={{ padding: "1px 6px" }}>
 
                         {
-                            data.searchAttributes && data.searchAttributesData.map(item => {
-                                return <Grid item>
+                            data.searchAttributes && data.searchAttributesData.map((item ,i)=> {
+                                return <Grid item key={i}>
                                     <Grid container
                                         alignItems="flex-start"
                                         direction="column">

@@ -8,9 +8,10 @@
 
 .TablePaper{
     padding: 30px !important;
-    background-color: #fbfbfb !important;
+    background-color: #f8f8f8 !important;
 
 }
+
 .css-jgzxgq-MuiDataGrid-root {
     border:none;
 }
@@ -18,7 +19,6 @@
 
 .TableGrid{
     height: 100vh;
-    margin-top: 17px;
 }
 .Searchbar{
     padding: 0.55rem 2rem;

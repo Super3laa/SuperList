@@ -1,3 +1,5 @@
+import DraftsIcon from '@mui/icons-material/Drafts';
+
 export const data = {
     searchAttributes:true,
     searchAttributesData:[
@@ -28,5 +30,44 @@ export const data = {
                 { value: 'CocoPowder', label: 'CocoPowder' }
             ]
         }
+    ],
+    categorySection:true,
+    categorySubHeader:"Categories",
+    categories:[
+        {
+            nested:true,
+            name:"Category 1",
+            categoryIcon:true,
+            Icon:<DraftsIcon />,
+            subCategories:[
+                {
+                    name:"subCategory1",
+                    categoryIcon:true,
+                    Icon:<DraftsIcon />, 
+                }
+            ]
+        },
+        {
+            nested:false,
+            name:"Category 2",
+            categoryIcon:false,
+        },
+        {
+            nested:true,
+            name:"Category 3",
+            categoryIcon:true,
+            Icon:<DraftsIcon />,
+            subCategories:[
+                {
+                    name:"subCategory1",
+                    subCategoryIcon:true,
+                    Icon:<DraftsIcon />, 
+                },{
+                    name:"subCategory2",
+                    subCategoryIcon:false,
+                }
+            ]
+        },
+
     ]
 }
