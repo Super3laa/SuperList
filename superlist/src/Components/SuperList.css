@@ -6,10 +6,10 @@
     text-align: left;
 }
 
-.TablePaper{
+.layout{
     padding: 30px !important;
-    background-color: #f8f8f8 !important;
-
+    background-color: #f0f2f5 !important;
+    min-height: 100vh;
 }
 
 .css-jgzxgq-MuiDataGrid-root {

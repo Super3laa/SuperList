@@ -12,18 +12,20 @@ export default function Filter({ data }) {
         })
         setListState(temp)
     }, [data.categories])
+
     const handleClick = (categoryName) => {
         let temp = listState
         temp[`${categoryName}`] = !temp[`${categoryName}`]
         setListState({ ...temp })
     };
+
     return (
         <Paper elevation={3} className="CategoriesSection">
             <List
                 component="nav"
                 aria-labelledby="nested-list-subheader"
                 subheader={
-                    <ListSubheader component="div" id="nested-list-subheader">
+                    <ListSubheader component="div" id="nested-list-subheader" style={{background:`${data.primaryColor}`,color:"#fff"}}>
                         {data.categorySubHeader}
                     </ListSubheader>
                 }
@@ -51,7 +53,7 @@ export default function Filter({ data }) {
                                                         {subCategory.subCategoryIcon && <ListItemIcon>
                                                             {subCategory.Icon}
                                                         </ListItemIcon>}
-                                                        <ListItemText primary="Starred" />
+                                                        <ListItemText primary={`${subCategory.name}`} />
                                                     </ListItemButton>
                                                 )
                                             })

@@ -1,24 +1,25 @@
 import React from 'react'
 import { Button, Grid, Typography } from '@mui/material';
 import PlusIcon from '@mui/icons-material/Add';
-export default function ListHeader(){
+export default function ListHeader({data}){
     return(
         <React.Fragment>
              <Grid  spacing={2} 
                 container
                 direction="row"
+                justifyContent="space-between"
             >
-                    <Grid item xs={8} className="TitleItem">
-                        <Typography variant="h5">
-                            PageName
+                    <Grid item  className="TitleItem">
+                        <Typography variant="h5" style={{fontWeight:"800"}}>
+                            {data.pageName}
                         </Typography>
                         <Typography className="TitleDescription">
-                            Page desciption incase if ther's one
+                            {data.pageSummary}
                         </Typography>
                     </Grid>
-                    <Grid item xs={4}>
-                    <Button variant="contained" endIcon={<PlusIcon />}>
-                        New Item
+                    <Grid item  >
+                    <Button variant="contained"endIcon={<PlusIcon />}>
+                       Invoice
                         </Button>
                     </Grid>
                 </Grid>

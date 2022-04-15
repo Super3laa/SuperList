@@ -11,7 +11,7 @@ export default function Search({ data }) {
 
     return (
         <>
-            <Paper elevation={3} className="Searchbar">
+            <Paper elevation={3} className="Searchbar" style={{border: `2px ${data.primaryColor} solid`}}>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <Grid container
@@ -84,8 +84,8 @@ export default function Search({ data }) {
                             >
                                 <Grid item><p className="SearchLabel" /></Grid>
                                 <Grid item >
-                                    <IconButton type="submit" aria-label="search">
-                                        <SearchIcon />
+                                    <IconButton type="submit" aria-label="search" style={{display:"flex"}}>
+                                        <SearchIcon  style={{color:`${data.primaryColor}`,display:"block",margin:"auto"}} />
                                     </IconButton>
                                 </Grid>
 

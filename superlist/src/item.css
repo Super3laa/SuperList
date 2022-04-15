@@ -1,0 +1,21 @@
+.InvoiceStatus{
+    font-weight: 500;
+    padding: 7px 15px;
+    border-radius: 100rem;
+}
+.Overdue{
+    background: #FFCDD2;
+    color: #F44336;
+}
+.Unpaid{
+    background: #FFE0B2;
+    color: #FF9800;
+}
+.Paid{
+    background: #C8E6C9;
+    color: #4CAF50;
+}
+.Draft{
+    background: #CFD8DC;
+    color: #607D8B;
+}
