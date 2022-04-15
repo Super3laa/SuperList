@@ -55,7 +55,7 @@ export default function Search({ data }) {
                                 direction="column">
                                 <Grid item >
                                     <p className="SearchLabel">
-                                        Search
+                                        {data.searchTitle}
                                     </p>
                                 </Grid>
                                 <Grid item>

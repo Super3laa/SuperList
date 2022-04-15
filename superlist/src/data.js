@@ -1,6 +1,5 @@
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ApartmentIcon from '@mui/icons-material/Apartment';
-import ReceiptIcon from '@mui/icons-material/Receipt';
 import Item from './item';
 import HeaderItem from './headerItem';
 
@@ -9,6 +8,7 @@ export const data = {
     pageSummary:"compnay transactions invoices and expenses",
     primaryColor:"#1565c0",
     searchAttributes:true,
+    searchTitle:"Search...",
     searchAttributesData:[
         {
             name:"city",
