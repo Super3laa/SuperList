@@ -26,7 +26,7 @@ export default function SuperList({ data }) {
                                     <Filter data={data}/>
                                 </Grid>
                                 <Grid item xs={9}>
-                                        {data.headerItem && <data.headerItem />}
+                                        {data.headerItem && <data.headerItemComponent />}
                                        {
                                            invoices.map(invoice=>{
                                                return <data.listItemComponent content={invoice} />

@@ -28,11 +28,14 @@ export const data = {
             ]
         },
         {
-            name:'Transaction',
-            label:"Transaction",
+            name:'status',
+            label:"Status",
             options: [
-                { value: 'invoices', label: 'Invoices' },
-                { value: 'expenses', label: 'expenses' },
+                { value: 'Paid', label: 'Paid' },
+                { value: 'Unpaid', label: 'Unpaid' },
+                { value: 'Overdue', label: 'Overdue' },
+                { value: 'Draft', label: 'Draft' },
+
             ]
         }
     ],
@@ -72,8 +75,28 @@ export const data = {
                 },
             ]
         },
+        {
+            nested:true,
+            name:"Status",
+            categoryIcon:false,
+            subCategories:[
+                {
+                    name:"Paid",
+                    categoryIcon:false,
+                },{
+                    name:"Unpaid",
+                    categoryIcon:false,
+                },{
+                    name:"Overdue",
+                    categoryIcon:false,
+                },{
+                    name:"Draft",
+                    categoryIcon:false,
+                },
+            ]
+        },
     ],
-    headeItem : true,
+    headerItem : true,
     listItemComponent : Item ,
-    headerItem : HeaderItem
+    headerItemComponent : HeaderItem
 }
