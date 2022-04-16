@@ -25,7 +25,7 @@ export default function Filter({ data }) {
                 component="nav"
                 aria-labelledby="nested-list-subheader"
                 subheader={
-                    <ListSubheader component="div" id="nested-list-subheader" style={{background:`${data.primaryColor}`,color:"#fff"}}>
+                    <ListSubheader component="div" id="nested-list-subheader" style={{background:`${data.primaryColor}`,fontSize:"1rem",color:"#fff"}}>
                         {data.categorySubHeader}
                     </ListSubheader>
                 }

@@ -6,7 +6,7 @@ import HeaderItem from './headerItem';
 export const data = {
     pageName:"Cash Transactions",
     pageSummary:"compnay transactions invoices and expenses",
-    primaryColor:"#1565c0",
+    primaryColor:"#673ab7",
     searchAttributes:true,
     searchTitle:"Search...",
     searchAttributesData:[

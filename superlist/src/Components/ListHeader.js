@@ -27,7 +27,7 @@ export default function ListHeader({ data }) {
                         {/*<Grid item ><IconButton >
                             <FilterAltIcon />
                         </IconButton></Grid>   Future dev*/}
-                        <Grid item> <Button variant="contained" endIcon={<PlusIcon />}>
+                        <Grid item> <Button variant="contained" style={{backgroundColor:`${data.primaryColor}`}} endIcon={<PlusIcon />}>
                             Invoice
                         </Button> </Grid>
                     </Grid>
