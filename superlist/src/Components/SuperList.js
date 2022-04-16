@@ -6,15 +6,13 @@ import ListHeader from './ListHeader';
 import Search from './Search';
 import Filter from './Categries';
 import {invoices} from './dummyData'
+import ListFooter from './ListFooter';
 
 export default function SuperList({ data }) { 
     return (
         <React.Fragment>
             <div className="layout">
                     <Grid container direction="column">
-                        <Grid item xs={12}>
-                            <ListHeader data={data}/>
-                        </Grid>
                         <Grid justifyContent={"center"} alignItems={"center"} container>
                             <Grid item xs={"auto"}>
                                 <Search data={data} />
@@ -26,16 +24,16 @@ export default function SuperList({ data }) {
                                     <Filter data={data}/>
                                 </Grid>
                                 <Grid item xs={9}>
+                                      <ListHeader data={data}/>
                                         {data.headerItem && <data.headerItemComponent />}
                                        {
                                            invoices.map(invoice=>{
                                                return <data.listItemComponent content={invoice} />
                                            })
                                        }
-
+                                     <ListFooter />
                                 </Grid>
                             </Grid>
-
                         </Grid>
                     </Grid>
             </div>
