@@ -5,7 +5,7 @@ import HeaderItem from './headerItem';
 
 export const data = {
     pageName:"Cash Transactions",
-    pageSummary:"compnay transactions invoices and expenses",
+    pageSummary:"compnay transactions invoices",
     primaryColor:"#673ab7",
     searchAttributes:true,
     searchTitle:"Search...",
@@ -98,5 +98,6 @@ export const data = {
     ],
     headerItem : true,
     listItemComponent : Item ,
-    headerItemComponent : HeaderItem
+    headerItemComponent : HeaderItem,
+    API:'http://localhost:5000/invoices'
 }

@@ -2,24 +2,26 @@ import { Grid } from '@mui/material'
 import React, { useState } from 'react'
 import TablePagination from '@mui/material/TablePagination';
 
-export default function ListFooter() {
+export default function ListFooter({content}) {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
 
     const handleChangePage = (event, newPage) => {
-        console.log(newPage)
         setPage(newPage);
+        content.queryUpdate({limit:rowsPerPage,offset:rowsPerPage*newPage})
     };
 
     const handleChangeRowsPerPage = (event) => {
-        setRowsPerPage(parseInt(event.target.value, 10));
+        const limit = parseInt(event.target.value, 10)
+        setRowsPerPage(limit);
         setPage(0);
+        content.queryUpdate({limit,offset:0})
     };
     return (
         <Grid container justifyContent="space-around">
             <TablePagination
                 component="div"
-                count={127}
+                count={content.count}
                 page={page}
                 onPageChange={handleChangePage}
                 rowsPerPage={rowsPerPage}
