@@ -9,6 +9,7 @@ export const data = {
     primaryColor:"#673ab7",
     searchAttributes:true,
     searchTitle:"Search...",
+    searchNameQuery:"client",
     searchAttributesData:[
         {
             name:"city",
@@ -44,53 +45,65 @@ export const data = {
     categories:[
         {
             nested:true,
-            name:"Cities",
+            title:"Cities",
+            name:"city",
             categoryIcon:true,
             Icon:<LocationOnIcon />,
             subCategories:[
                 {
                     name:"Alexandria",
+                    title:"Alexandria",
                     categoryIcon:false,
                 },{
                     name:"Cairo",
+                    title:"Cairo",
                     categoryIcon:false,
                 }
             ]
         },
         {
             nested:true,
-            name:"Branches",
+            title:"Branches",
+            name:"branch",
             categoryIcon:true,
             Icon:<ApartmentIcon />,
             subCategories:[
                 {
                     name:"Smouha",
+                    title:"Smouha",
                     categoryIcon:false,
                 },{
                     name:"5th Settlement",
+                    title:"5th Settlement",
                     categoryIcon:false,
                 },{
                     name:"6 October",
+                    title:"6 October",
                     categoryIcon:false,
                 },
             ]
         },
         {
             nested:true,
-            name:"Status",
+            title:"Status",
+            name:'status',
             categoryIcon:false,
             subCategories:[
                 {
                     name:"Paid",
+                    title:"Paid",
                     categoryIcon:false,
                 },{
                     name:"Unpaid",
+                    title:"Unpaid",
                     categoryIcon:false,
                 },{
                     name:"Overdue",
+                    title:"Overdue",
                     categoryIcon:false,
                 },{
                     name:"Draft",
+                    title:"Draft",
                     categoryIcon:false,
                 },
             ]

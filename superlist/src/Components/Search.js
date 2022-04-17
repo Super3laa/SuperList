@@ -5,13 +5,20 @@ import SearchIcon from '@mui/icons-material/SearchOutlined';
 import IconButton from '@mui/material/IconButton';
 import Select from 'react-select'
 import './Search.css'
-export default function Search({ data }) {
-    const onSubmit = data => console.log(data);
+export default function Search({ data, query }) {
+    const onSubmit = data => {
+        Object.keys(data).forEach(key => {
+            if (data[key] === undefined || data[key]==='') {
+                delete data[key];
+            }
+        }); 
+        query.queryFunction(data);
+    }
     const { handleSubmit, control } = useForm();
 
     return (
         <>
-            <Paper elevation={3} className="Searchbar" style={{border: `2px ${data.primaryColor} solid`}}>
+            <Paper elevation={3} className="Searchbar" style={{ border: `2px ${data.primaryColor} solid` }}>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <Grid container
@@ -19,7 +26,7 @@ export default function Search({ data }) {
                         style={{ padding: "1px 6px" }}>
 
                         {
-                            data.searchAttributes && data.searchAttributesData.map((item ,i)=> {
+                            data.searchAttributes && data.searchAttributesData.map((item, i) => {
                                 return <Grid item key={i}>
                                     <Grid container
                                         alignItems="flex-start"
@@ -59,21 +66,21 @@ export default function Search({ data }) {
                                     </p>
                                 </Grid>
                                 <Grid item>
-                                    <Controller 
-                                        name="search"
+                                    <Controller
+                                        name={`${data.searchNameQuery}`}
                                         control={control}
-                                        render={({field})=>{
+                                        render={({ field }) => {
                                             return <InputBase
-                                            placeholder="Search.."
-                                            fullWidth
-                                            onChange={(data) => {
-                                                field.onChange(data.target.value);
-                                            }}
-                                        />
+                                                placeholder="Search.."
+                                                fullWidth
+                                                onChange={(data) => {
+                                                    field.onChange(data.target.value);
+                                                }}
+                                            />
                                         }}
 
                                     />
-                                   
+
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -84,8 +91,8 @@ export default function Search({ data }) {
                             >
                                 <Grid item><p className="SearchLabel" /></Grid>
                                 <Grid item >
-                                    <IconButton type="submit" aria-label="search" style={{display:"flex"}}>
-                                        <SearchIcon  style={{color:`${data.primaryColor}`,display:"block",margin:"auto"}} />
+                                    <IconButton type="submit" aria-label="search" style={{ display: "flex" }}>
+                                        <SearchIcon style={{ color: `${data.primaryColor}`, display: "block", margin: "auto" }} />
                                     </IconButton>
                                 </Grid>
 

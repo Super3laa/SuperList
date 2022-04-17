@@ -11,7 +11,6 @@
 .layout{
     padding: 30px !important;
     background-color: #f0f2f5 !important;
-    min-height: 100vh;
 }
 
 .css-jgzxgq-MuiDataGrid-root {
@@ -20,7 +19,7 @@
 
 
 .TableGrid{
-    height: 100vh;
+    height: fit-content;
 }
 .Searchbar{
     padding: 0.55rem 2rem;

@@ -3,7 +3,7 @@ import Paper from '@mui/material/Paper';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import { Collapse, List, ListItemButton, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
-export default function Filter({ data }) {
+export default function Filter({ data ,query}) {
     const [listState, setListState] = useState({});
     useEffect(() => {
         let temp = {};
@@ -18,6 +18,11 @@ export default function Filter({ data }) {
         temp[`${categoryName}`] = !temp[`${categoryName}`]
         setListState({ ...temp })
     };
+    const handleFilter = (categoryName,subCategory)=>{
+        let Obj = {}
+        Obj[categoryName] = subCategory
+        query.queryFunction(Obj)
+    }
 
     return (
         <Paper elevation={3} className="CategoriesSection">
@@ -40,7 +45,7 @@ export default function Filter({ data }) {
 
                                     </ListItemIcon>
                                 }
-                                <ListItemText primary={`${category.name}`} />
+                                <ListItemText primary={`${category.title}`} />
                                 {category.nested ? (listState[`${category.name}`] && listState) ? <ExpandLess /> : <ExpandMore /> : null}
                             </ListItemButton>
                             {
@@ -49,11 +54,11 @@ export default function Filter({ data }) {
                                         {
                                             category.subCategories.map((subCategory, j) => {
                                                 return (
-                                                    <ListItemButton key={j} sx={{ pl: 4 }}>
+                                                    <ListItemButton key={j} sx={{ pl: 4 }} onClick={() => handleFilter(category.name,subCategory.name)}>
                                                         {subCategory.subCategoryIcon && <ListItemIcon>
                                                             {subCategory.Icon}
                                                         </ListItemIcon>}
-                                                        <ListItemText primary={`${subCategory.name}`} />
+                                                        <ListItemText primary={`${subCategory.title}`} />
                                                     </ListItemButton>
                                                 )
                                             })
