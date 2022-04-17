@@ -10,18 +10,21 @@ import ListFooter from './ListFooter';
 export default function SuperList({ data }) {
     const [dataDB, setDataDB] = useState([]);
     const [listQuery, setlistQuery] = useState({});
-    const [paginationQuery,setPaginationQuery]=useState({limit:10,offset:0})
+    const [listSort,setlistSort] = useState([])
+    const [paginationQuery,setPaginationQuery]=useState({limit:10,offset:0});
     useEffect(() => {
         fetch()
         async function fetch() {
-            let query = ""
-            Object.keys(listQuery).forEach(function (key) {
-                query += `&${key}=${listQuery[key]}`
-            });
-            let res = await axios.get(data.API + `?limit=${paginationQuery.limit}&offset=${paginationQuery.offset}${query}`);
+            let query = '';
+            query += `limit=${paginationQuery.limit}&offset=${paginationQuery.offset}`
+            query += `&filter=${JSON.stringify(listQuery)}`
+            if(listSort.length>0){
+                query += `&sort=${JSON.stringify(listSort)}`
+            }
+            let res = await axios.get(data.API + `?${query}`);
             setDataDB(res.data);
         }
-    }, [data.API, listQuery,paginationQuery])
+    }, [data.API, listQuery,paginationQuery,listSort])
 
     function handlePaginationQueryUpdate({limit,offset}){
         setPaginationQuery({limit,offset})
@@ -29,6 +32,10 @@ export default function SuperList({ data }) {
     function handleListQuery(Obj){
         setlistQuery(Obj)
     }
+    function handleListSort(Obj){
+        setlistSort(Obj)
+    }
+
     return (
         <React.Fragment>
             <div className="layout">
@@ -44,7 +51,7 @@ export default function SuperList({ data }) {
                                 <Filter data={data} query={{queryFunction:handleListQuery}} />
                             </Grid>
                             <Grid item xs={9}>
-                                <ListHeader data={data} />
+                                <ListHeader data={data}  query={{sortFunction:handleListSort}}/>
                                 {data.headerItem && <data.headerItemComponent />}
                                 {
                                     dataDB.rows && dataDB.rows.map(invoice => {

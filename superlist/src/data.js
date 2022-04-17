@@ -109,6 +109,13 @@ export const data = {
             ]
         },
     ],
+    sortMenu:[
+        {title:"Amount High to Low",name:"amount",sort:"DESC"},
+        {title:"Amount Low to High",name:"amount",sort:"ASC"},
+        {title:"Date ASC",name:"date",sort:"ASC"},
+        {title:"Date DESC",name:"date",sort:"DESC"},
+        {title:"Status",name:"status",sort:"ASC"}
+    ],
     headerItem : true,
     listItemComponent : Item ,
     headerItemComponent : HeaderItem,
