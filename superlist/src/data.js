@@ -109,6 +109,8 @@ export const data = {
             ]
         },
     ],
+    sort:true,
+    print:true,
     sortMenu:[
         {title:"Amount High to Low",name:"amount",sort:"DESC"},
         {title:"Amount Low to High",name:"amount",sort:"ASC"},

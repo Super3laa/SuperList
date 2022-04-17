@@ -60,7 +60,8 @@ export default function ListHeader({ data ,query}) {
                                 })
                             }
                         </Menu>
-                        <Grid item ><IconButton
+                        {
+                            data.sort && <Grid item ><IconButton
                             id="demo-positioned-button"
                             aria-controls={open ? 'demo-positioned-menu' : undefined}
                             aria-haspopup="true"
@@ -69,9 +70,10 @@ export default function ListHeader({ data ,query}) {
                         >
                             <SortIcon />
                         </IconButton></Grid>
-                        <Grid item ><IconButton onClick={handlePrintRows} >
+                        }
+                       {data.print &&  <Grid item ><IconButton onClick={handlePrintRows} >
                             <PrintIcon />
-                        </IconButton></Grid>
+                        </IconButton></Grid>}
 
                         <Grid item> <Button variant="contained" style={{ backgroundColor: `${data.primaryColor}` }} endIcon={<PlusIcon />}>
                             Invoice
