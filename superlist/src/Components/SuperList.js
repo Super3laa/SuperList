@@ -52,12 +52,15 @@ export default function SuperList({ data }) {
                             </Grid>
                             <Grid item xs={9}>
                                 <ListHeader data={data}  query={{sortFunction:handleListSort}}/>
+                                <div id="Table">
                                 {data.headerItem && <data.headerItemComponent />}
                                 {
                                     dataDB.rows && dataDB.rows.map(invoice => {
                                         return <data.listItemComponent content={invoice} />
                                     })
                                 }
+                                </div>
+                                
                                 <ListFooter content={{queryUpdate:handlePaginationQueryUpdate,count:dataDB.count}}/>
                             </Grid>
                         </Grid>

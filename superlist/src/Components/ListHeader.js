@@ -17,6 +17,12 @@ export default function ListHeader({ data ,query}) {
         setAnchorEl(null);
 
     };
+    const handlePrintRows =()=>{
+        var printsection = document.getElementById('Table').innerHTML;
+        document.body.innerHTML = printsection;
+        window.print();
+        window.location.reload();
+    }
     return (
         <React.Fragment>
             <Grid spacing={2}
@@ -63,7 +69,7 @@ export default function ListHeader({ data ,query}) {
                         >
                             <SortIcon />
                         </IconButton></Grid>
-                        <Grid item ><IconButton >
+                        <Grid item ><IconButton onClick={handlePrintRows} >
                             <PrintIcon />
                         </IconButton></Grid>
 
