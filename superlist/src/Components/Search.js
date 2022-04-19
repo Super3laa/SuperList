@@ -1,17 +1,21 @@
 import React from 'react'
-import { Grid, InputBase, Paper } from '@mui/material';
+import { Grid, InputBase, Paper, Button } from '@mui/material';
 import { useForm, Controller } from "react-hook-form";
 import SearchIcon from '@mui/icons-material/SearchOutlined';
 import IconButton from '@mui/material/IconButton';
 import Select from 'react-select'
 import './Search.css'
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 export default function Search({ data, query }) {
+    const mobile = useMediaQuery('(max-width:600px)');
+
     const onSubmit = data => {
         Object.keys(data).forEach(key => {
-            if (data[key] === undefined || data[key]==='') {
+            if (data[key] === undefined || data[key] === '') {
                 delete data[key];
             }
-        }); 
+        });
         query.queryFunction(data);
     }
     const { handleSubmit, control } = useForm();
@@ -22,12 +26,12 @@ export default function Search({ data, query }) {
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                     <Grid container
-                        direction="row"
+                        direction={mobile ? 'column' : 'row'}
                         style={{ padding: "1px 6px" }}>
 
                         {
                             data.searchAttributes && data.searchAttributesData.map((item, i) => {
-                                return <Grid item key={i}>
+                                return <Grid item key={i} xs={mobile ? 12 : "auto"}>
                                     <Grid container
                                         alignItems="flex-start"
                                         direction="column">
@@ -36,7 +40,7 @@ export default function Search({ data, query }) {
                                                 {item.label}
                                             </p>
                                         </Grid>
-                                        <Grid item>
+                                        <Grid item xs={mobile ? 12 : "auto"} style={{ width: "100%" }}>
                                             <Controller
                                                 name={item.name}
                                                 control={control}
@@ -56,7 +60,7 @@ export default function Search({ data, query }) {
                             })
                         }
 
-                        <Grid item>
+                        <Grid item xs={mobile ? 12 : "auto"}>
                             <Grid container
                                 alignItems="flex-start"
                                 direction="column">
@@ -65,7 +69,7 @@ export default function Search({ data, query }) {
                                         {data.searchTitle}
                                     </p>
                                 </Grid>
-                                <Grid item>
+                                <Grid item xs={mobile ? 12 : "auto"}>
                                     <Controller
                                         name={`${data.searchNameQuery}`}
                                         control={control}
@@ -84,16 +88,20 @@ export default function Search({ data, query }) {
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid item>
+                        <Grid item xs={mobile ? 12 : "auto"}>
                             <Grid container
                                 direction="column"
                                 justifyContent="center"
                             >
-                                <Grid item><p className="SearchLabel" /></Grid>
-                                <Grid item >
-                                    <IconButton type="submit" aria-label="search" style={{ display: "flex" }}>
-                                        <SearchIcon style={{ color: `${data.primaryColor}`, display: "block", margin: "auto" }} />
-                                    </IconButton>
+                                <Grid item xs={mobile ? 12 : "auto"}><p className="SearchLabel" /></Grid>
+                                <Grid item xs={mobile ? 12 : "auto"} >
+                                    {mobile ?
+                                        <Button variant="contained" type="submit" style={{ width: "100%", backgroundColor: `${data.primaryColor}` }} endIcon={<SearchIcon />}>
+                                            Search
+                                        </Button>
+                                        : <IconButton type="submit" aria-label="search" style={{ display: "flex" }}>
+                                            <SearchIcon style={{ color: `${data.primaryColor}`, display: "block", margin: "auto" }} />
+                                        </IconButton>}
                                 </Grid>
 
                             </Grid>

@@ -3,7 +3,11 @@ import { Button, Grid, IconButton, Typography, MenuItem, Menu } from '@mui/mater
 import PlusIcon from '@mui/icons-material/Add';
 import PrintIcon from '@mui/icons-material/Print';
 import SortIcon from '@mui/icons-material/Sort';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 export default function ListHeader({ data ,query}) {
+    const mobile = useMediaQuery('(max-width:600px)');
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -30,16 +34,16 @@ export default function ListHeader({ data ,query}) {
                 direction="row"
                 justifyContent="space-between"
             >
-                <Grid item className="TitleItem">
-                    <Typography variant="h5" style={{ fontWeight: "800" }}>
+                <Grid item xs={mobile ? 12 : "auto"} className="TitleItem">
+                    <Typography variant="h5" style={{ color:"#2b373e",fontWeight: "800" }}>
                         {data.pageName}
                     </Typography>
                     <Typography className="TitleDescription">
                         {data.pageSummary}
                     </Typography>
                 </Grid>
-                <Grid item  >
-                    <Grid container spacing="6">
+                <Grid item  xs={mobile ? 12 : "auto"} >
+                    <Grid container spacing="6" justifyContent="space-around">
                         <Menu
                             id="demo-positioned-menu"
                             aria-labelledby="demo-positioned-button"
