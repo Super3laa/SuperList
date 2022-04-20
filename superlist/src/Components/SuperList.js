@@ -71,14 +71,18 @@ export default function SuperList({ data }) {
                             {
                                 mobile ?
                                     <Grid container direction="row" spacing={3}>
-                                        <Grid item xs={10}>
+                                        <Grid item xs={ data.categorySection ? 10 :12}>
                                             <Button onClick={() => toggleModal('search')} variant="contained" style={{ width: "100%", backgroundColor: `${data.primaryColor}` }} endIcon={<SearchIcon />}>Search</Button>
                                         </Grid>
-                                        <Grid item xs={2}>
-                                        <IconButton aria-label="filter" style={{ display: "flex" }}>
-                                            <FilterAltIcon onClick={() => toggleModal('filter')} style={{display: "block", margin: "auto" }} />
-                                        </IconButton>
-                                        </Grid>
+                                        {
+                                            data.categorySection && 
+                                            <Grid item xs={2}>
+                                            <IconButton aria-label="filter" style={{ display: "flex" }}>
+                                                <FilterAltIcon onClick={() => toggleModal('filter')} style={{display: "block", margin: "auto" }} />
+                                            </IconButton>
+                                            </Grid>
+                                        }
+                                       
 
                                     </Grid> : <Search data={data} query={{ queryFunction: handleListQuery }} />
                             }
