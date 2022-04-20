@@ -79,8 +79,10 @@ export default function ListHeader({ data ,query}) {
                             <PrintIcon />
                         </IconButton></Grid>}
 
-                        <Grid item> <Button variant="contained" style={{ backgroundColor: `${data.primaryColor}` }} endIcon={<PlusIcon />}>
-                            Invoice
+                        <Grid item> <Button variant="contained"
+                        onClick={data.addButtonOnClickFunction}
+                         style={{ backgroundColor: `${data.primaryColor}` }} endIcon={<PlusIcon />}>
+                            {data.addButtonTitle}
                         </Button> </Grid>
                     </Grid>
 
