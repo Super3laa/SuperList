@@ -1,4 +1,3 @@
-import './App.css';
 import SuperList from './Components/SuperList';
 import {data} from './data.js'
 function App() {

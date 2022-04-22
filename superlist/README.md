@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# SuperList Module
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SuperList Module Helps create your front-end in seconds
 
-## Available Scripts
+ - Search , Filter , Sort and Paginate with easy integration with your backend API
+ - Smooth Clean Design and Responsive, MUI based 
+	 ![FrontEnd](https://imgur.com/l112ctJ.png)
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+  ```js script
+ import  SuperList  from  'SuperList';
+import {data} from  './data.js'
+function  App() {
+	return (
+	<>
+		<SuperList  data={data}  />
+	</>
+	);
+}
+export  default  App; 
+  ```
+#
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## API documentation
+|Name|Type|Description  |
+|--|--|--|
+| pageName |String  | Title of your page	|
+|pageSummary|String | Summary or description of your page
+|primaryColor|String|The primary color in the module to make the design more adaptive to your theme Ex: primaryColor:"#673ab7"
+|searchAttributes|bool| enables the filter part in the search bar 
+|searchTitle|String|the search input title to help user what are they searching for
+|searchNameQuery|String|for backend purposes when you submit API request the search field data will be in object with property of the searchNameQuery 
+|searchAttributesData|Array| The filter part in search bar is an array of objects	for example Object has properties name,label and options for select	 { name:"city",label:"City",options: [{ value:  'Alexandria', label:  'Alexandria' },{ value:  'Cairo', label:  'Cairo' },]},
+|categorySection|bool|category section on the left side of the page to enables you filter all the data with specific attributes
+|categorySubHeader|String|SubHeader for the category section
+|categories|Array|Array of Objects ;Object properties are title,name,categoryIcon with bool value in case you need to add an icon , Icon prop takes Component ,nested propert is bool if you want the menu to be nested with sub categories, subCategories property takes array for objects with same params
+|sort|bool| enables you to sort the list
+|sortMenu|Array|Array of Object for example [		{title:"Amount High to Low",name:"amount",sort:"DESC"},{title:"Amount Low to High",name:"amount",sort:"ASC"}]
+|print|bool|in case you need to print you rows
+|addButtonTitle|String| The add button text
+|addButtonOnClickFunction|function| pass function whatever you wanna do when you click the button
+|headerItem|bool|in case you want have a header for you records
+|headerItemComponent|JS Component| the header component
+|listItemComponent|JS Component| your record component design with get a param props.content will have your record data
+|API|String| your backend API will ge a GET Request with query params of everything that happens in the module serch,sort,filter,pagination data
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Back End Example using Express
+```js script
+	app.get('/invoices',async  function(req,res){
+		let  query = req.query;
+		const  limit = parseInt(req.query.limit)
+		const  offset = parseInt(req.query.offset)
+		let  filters = JSON.parse(query.filter)
+		if (filters.client){
+			filters.client = {[Op.like]:`%${filters.client}%`}
+		}
+		let  dbObj = {
+			where:filters,
+			limit,
+			offset,
+		}
+		if(req.query.sort){
+			let  sort = JSON.parse(query.sort);
+			dbObj.order = [sort]
+		}
+		let {count,rows} = await models.invoices.findAndCountAll(dbObj);
+		res.send({count,rows}).status(200);
+})
+```

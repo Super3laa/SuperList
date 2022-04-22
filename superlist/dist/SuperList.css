@@ -1,0 +1,35 @@
+.TitleDescription{
+    color: #9b9b9b;
+    padding-left: 3px;
+}
+.TitleItem{
+    text-align: left;
+    padding-bottom: 12px;
+
+}
+
+.layout{
+    padding: 30px !important;
+    background-color: #f0f2f5 !important;
+}
+
+.css-jgzxgq-MuiDataGrid-root {
+    border:none;
+}
+
+
+.TableGrid{
+    height: fit-content;
+}
+.Searchbar{
+    padding: 0.55rem 2rem;
+    border-radius: 2rem !important
+}
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    border:0;
+}
