@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/superlist/static/css/main.8c6da805.css",
-    "main.js": "/superlist/static/js/main.000ffb8e.js",
-    "index.html": "/superlist/index.html",
-    "main.8c6da805.css.map": "/superlist/static/css/main.8c6da805.css.map",
-    "main.000ffb8e.js.map": "/superlist/static/js/main.000ffb8e.js.map"
+    "main.css": "/@superalaa/superlist/static/css/main.8c6da805.css",
+    "main.js": "/@superalaa/superlist/static/js/main.000ffb8e.js",
+    "index.html": "/@superalaa/superlist/index.html",
+    "main.8c6da805.css.map": "/@superalaa/superlist/static/css/main.8c6da805.css.map",
+    "main.000ffb8e.js.map": "/@superalaa/superlist/static/js/main.000ffb8e.js.map"
   },
   "entrypoints": [
     "static/css/main.8c6da805.css",
