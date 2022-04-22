@@ -9,7 +9,7 @@ SuperList Module Helps create your front-end in seconds
 ## Getting Started
 
   ```js script
- import  SuperList  from  'SuperList';
+import  SuperList  from  '@superalaa/superlist';
 import {data} from  './data.js'
 function  App() {
 	return (
