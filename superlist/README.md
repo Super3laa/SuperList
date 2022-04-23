@@ -7,9 +7,12 @@ SuperList Module Helps create your front-end in seconds
 	 ![FrontEnd](https://imgur.com/l112ctJ.png)
 
 ## Getting Started
+```bash
+$ npm i @superalaa/superlist
+```
 
   ```js script
-import  SuperList  from  '@superalaa/superlist';
+ import  SuperList  from  'SuperList';
 import {data} from  './data.js'
 function  App() {
 	return (
@@ -21,6 +24,8 @@ function  App() {
 export  default  App; 
   ```
 #
+ [Live Exmaple in Code SandBox ](https://codesandbox.io/s/superlist-module-kh08ut?file=/src/data.js)
+ Try Editing in data.js to get your head around the API docs
 
 ## API documentation
 |Name|Type|Description  |
@@ -68,3 +73,5 @@ export  default  App;
 		res.send({count,rows}).status(200);
 })
 ```
+[NPM](https://www.npmjs.com/package/@superalaa/superlist)
+[GitHub](https://github.com/Super3laa/SuperList/tree/master/superlist)
